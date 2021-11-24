@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Galerie dostupných filmů</title>
+</head>
+<body>
+    <ul>
+        <div th:if="${#strings.isEmpty(NoName)}">
+            <p id="empty">Nebylo zadáno žádné jméno!</p>
+        </div>
+        <div th:if="${#strings.isEmpty(NoUrl)}">
+            <p id="emptyAddress">Nebyla zadána žádná adresa!</p>
+        </div>
+        <li th:each="modelitem : ${seznamVidei}">
+            <a th:href="@{'player/' + ${modelitem.Name}}"><p th:utext="${modelitem.getName}"></p></a>
+        </li>
+    </ul>
+</body>
+</html>
